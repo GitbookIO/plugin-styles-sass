@@ -30,7 +30,8 @@ module.exports = {
 
             return _.reduce(styles, function(prev, filename, type) {
                 return prev.then(function() {
-                    if (path.extname(filename).toLowerCase() != '.sass') return;
+                    var extension = path.extname(filename).toLowerCase();
+                    if (extension != '.sass' && extension != '.scss') return;
 
                     book.log.info.ln('compile sass file: ', filename);
 
